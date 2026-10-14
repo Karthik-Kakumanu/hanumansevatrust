@@ -132,6 +132,15 @@ export default function App() {
               >
                 తెలుగు
               </button>
+              <button
+                type="button"
+                className="header-bell-btn"
+                onClick={() => window.dispatchEvent(new CustomEvent('ring-temple-bell'))}
+                title="Ring Sacred Temple Bell"
+                aria-label="Ring Temple Bell"
+              >
+                🔔
+              </button>
             </div>
 
             <button
@@ -176,7 +185,7 @@ export default function App() {
 
                 {/* Staged 3D Lord Hanuman Model in Blessing Abhaya Mudra */}
                 <div className="home-hero-3d-stage">
-                  <Temple3DStage theme="home" pose="blessing" cameraPos={[0, 1.6, 5.0]} hanumanScale={1.12} />
+                  <Temple3DStage theme="home" pose="blessing" cameraPos={[0, 0.35, 4.8]} hanumanScale={1.0} />
                 </div>
               </div>
             </section>

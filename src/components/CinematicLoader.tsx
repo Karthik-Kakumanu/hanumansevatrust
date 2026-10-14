@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { LordHanumanFigure } from './ImmersiveWorld'
+import { LordHanumanCharacter } from './LordHanumanCharacter'
+import { playTempleBellChime } from '../utils/audioSynth'
 
 export default function CinematicLoader({
   onComplete,
@@ -9,7 +10,7 @@ export default function CinematicLoader({
   onComplete: () => void
   forceSkip?: boolean
 }) {
-  const [progress, setProgress] = useState(12)
+  const [progress, setProgress] = useState(15)
   const [phase, setPhase] = useState('PREPARING THE SANCTUM')
   const [fadeOut, setFadeOut] = useState(false)
 
@@ -36,7 +37,7 @@ export default function CinematicLoader({
 
     const timer4 = setTimeout(() => {
       setFadeOut(true)
-    }, 1800)
+    }, 1850)
 
     const timer5 = setTimeout(() => {
       onComplete()
@@ -51,17 +52,34 @@ export default function CinematicLoader({
     }
   }, [forceSkip, onComplete])
 
+  const handleEnterNow = () => {
+    playTempleBellChime(0.5)
+    setFadeOut(true)
+    setTimeout(onComplete, 300)
+  }
+
   return (
-    <div className={`cinematic-loader ${fadeOut ? 'fade-out' : ''}`} role="dialog" aria-modal="true" aria-label="Preparing the Sanctum">
+    <div
+      className={`cinematic-loader ${fadeOut ? 'fade-out' : ''}`}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Preparing the Sanctum"
+    >
       <div className="loader-backdrop" />
       <div className="loader-mandala" />
 
-      {/* 3D Gada / Mini Sanctum Preview in Loader */}
+      {/* 3D Mini Sanctum Preview in Loader */}
       <div className="loader-3d-preview" aria-hidden="true">
-        <Canvas camera={{ position: [0, 1.8, 4.2], fov: 38 }} gl={{ alpha: true }}>
-          <ambientLight intensity={0.6} color="#ffe2b0" />
-          <pointLight position={[2, 3, 2]} intensity={4} color="#f5c542" />
-          <LordHanumanFigure position={[0, -0.6, 0]} scale={0.72} chapter="sanctum" />
+        <Canvas camera={{ position: [0, 0.35, 4.2], fov: 40 }} gl={{ alpha: true }}>
+          <ambientLight intensity={0.95} color="#fff1db" />
+          <directionalLight position={[3, 6, 4]} intensity={2.2} color="#ffe2a8" />
+          <pointLight position={[-2, 2, 2]} intensity={2} color="#e67528" />
+          <LordHanumanCharacter
+            position={[0, 0, 0]}
+            scale={0.75}
+            pose="blessing"
+            floatAnim={true}
+          />
         </Canvas>
       </div>
 
@@ -71,8 +89,14 @@ export default function CinematicLoader({
         <h2 className="loader-title">{phase}</h2>
         <p className="loader-quote">“May devotion guide every act of service.”</p>
 
-        {/* Real progress bar */}
-        <div className="loader-bar-track" role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100}>
+        {/* Progress bar */}
+        <div
+          className="loader-bar-track"
+          role="progressbar"
+          aria-valuenow={progress}
+          aria-valuemin={0}
+          aria-valuemax={100}
+        >
           <div className="loader-bar-fill" style={{ width: `${progress}%` }} />
         </div>
         <div className="loader-progress-text">{progress}%</div>
@@ -80,15 +104,11 @@ export default function CinematicLoader({
         <button
           type="button"
           className="loader-skip"
-          onClick={() => {
-            setFadeOut(true)
-            setTimeout(onComplete, 350)
-          }}
+          onClick={handleEnterNow}
         >
-          Skip Intro →
+          Enter Sanctum Directly 🔔 →
         </button>
       </div>
     </div>
   )
 }
-

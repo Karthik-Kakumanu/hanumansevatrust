@@ -122,7 +122,7 @@ export function AboutPage({ lang }: { lang: 'en' | 'te' }) {
 
           {/* Dedicated Staged 3D Lord Hanuman */}
           <div className="subpage-3d-frame">
-            <Temple3DStage theme="about" pose="namaskar" cameraPos={[0, 1.6, 4.8]} hanumanScale={1.12} />
+            <Temple3DStage theme="about" pose="namaskar" cameraPos={[0, 0.35, 4.8]} hanumanScale={1.0} />
           </div>
         </div>
       </section>
@@ -224,7 +224,7 @@ export function SevaPage({ lang }: { lang: 'en' | 'te' }) {
           </div>
 
           <div className="subpage-3d-frame">
-            <Temple3DStage theme="seva" pose="heroic" cameraPos={[0, 1.6, 5.0]} hanumanScale={1.1} />
+            <Temple3DStage theme="seva" pose="heroic" cameraPos={[0, 0.35, 4.8]} hanumanScale={1.0} />
           </div>
         </div>
       </section>
@@ -286,13 +286,22 @@ export function GalleryPage() {
 
   return (
     <div className="subpage-container page-gallery-theme">
-      <section className="subpage-hero-banner-simple">
-        <div className="wrap text-center">
-          <span className="sacred-eyebrow-bright">Documentary Record</span>
-          <h1 className="subpage-title">Moments of Devotion in Action</h1>
-          <p className="subpage-lead-centered">
-            A curated photographic exhibition highlighting the authentic charitable, cultural, and spiritual activities of Jai Hanuman Seva Trust.
-          </p>
+      <section className="subpage-hero-banner">
+        <div className="wrap subpage-banner-grid">
+          <div className="subpage-hero-text">
+            <span className="sacred-eyebrow-bright">Documentary Record</span>
+            <h1 className="subpage-title">
+              Moments of Devotion <br />
+              <span className="serif-highlight">in Selfless Action.</span>
+            </h1>
+            <p className="subpage-lead">
+              A curated photographic exhibition highlighting the authentic charitable, cultural, and spiritual activities of Jai Hanuman Seva Trust.
+            </p>
+          </div>
+
+          <div className="subpage-3d-frame">
+            <Temple3DStage theme="gallery" pose="blessing" cameraPos={[0, 0.35, 4.8]} hanumanScale={1.0} />
+          </div>
         </div>
       </section>
 
@@ -358,11 +367,20 @@ export function EventsPage({ lang }: { lang: 'en' | 'te' }) {
   const t = tData[lang]
   return (
     <div className="subpage-container page-events-theme">
-      <section className="subpage-hero-banner-simple">
-        <div className="wrap text-center">
-          <span className="sacred-eyebrow-bright">{t.events.eyebrow}</span>
-          <h1 className="subpage-title">{t.events.title}</h1>
-          <p className="subpage-lead-centered">{t.events.sub}</p>
+      <section className="subpage-hero-banner">
+        <div className="wrap subpage-banner-grid">
+          <div className="subpage-hero-text">
+            <span className="sacred-eyebrow-bright">{t.events.eyebrow}</span>
+            <h1 className="subpage-title">
+              {t.events.title} <br />
+              <span className="serif-highlight">Dharma & Festival Gatherings</span>
+            </h1>
+            <p className="subpage-lead">{t.events.sub}</p>
+          </div>
+
+          <div className="subpage-3d-frame">
+            <Temple3DStage theme="events" pose="heroic" cameraPos={[0, 0.35, 4.8]} hanumanScale={1.0} />
+          </div>
         </div>
       </section>
 
@@ -437,7 +455,7 @@ export function DonationPage({ lang }: { lang: 'en' | 'te' }) {
           </div>
 
           <div className="subpage-3d-frame">
-            <Temple3DStage theme="donation" pose="blessing" cameraPos={[0, 1.6, 5.0]} hanumanScale={1.1} />
+            <Temple3DStage theme="donation" pose="blessing" cameraPos={[0, 0.35, 4.8]} hanumanScale={1.0} />
           </div>
         </div>
       </section>
@@ -489,8 +507,22 @@ export function DonationPage({ lang }: { lang: 'en' | 'te' }) {
                 </div>
 
                 <div className="verified-qr-display">
-                  <img src="/images/donation-qr.jpg" alt="Official Trust QR Code" className="authentic-qr-img" />
+                  <img
+                    src="/images/donation-qr.jpg"
+                    alt="Official Trust QR Code"
+                    className="authentic-qr-img"
+                    width={240}
+                    height={240}
+                  />
                   <p className="qr-badge">✓ Verified Authentic Trust QR (Scan with GPay, PhonePe, Paytm, BHIM)</p>
+                  <div className="qr-action-row">
+                    <a
+                      href="upi://pay?pa=7095999915-3@ybl&pn=Jai%20Hanuman%20Seva%20Trust&cu=INR"
+                      className="btn-upi-mobile-pay"
+                    >
+                      ⚡ Open Directly in UPI App (Mobile)
+                    </a>
+                  </div>
                 </div>
                 <p className="tax-compliance-text">{t.donation.taxNote}</p>
               </div>
@@ -619,7 +651,7 @@ export function ContactPage({ lang }: { lang: 'en' | 'te' }) {
           </div>
 
           <div className="subpage-3d-frame">
-            <Temple3DStage theme="contact" pose="protective" cameraPos={[0, 1.6, 5.0]} hanumanScale={1.1} />
+            <Temple3DStage theme="contact" pose="seated-meditation" cameraPos={[0, 0.35, 4.8]} hanumanScale={1.0} />
           </div>
         </div>
       </section>
@@ -713,7 +745,7 @@ export function ContactPage({ lang }: { lang: 'en' | 'te' }) {
                 </div>
 
                 <button type="submit" disabled={submitting} className="btn-primary-bright btn-full">
-                  {submitting ? 'Transmitting Message…' : 'Send Message to Office <Arrow />'}
+                  {submitting ? 'Transmitting Message…' : 'Send Message to Office →'}
                 </button>
 
                 {status && <div className="bright-status-msg">{status}</div>}
