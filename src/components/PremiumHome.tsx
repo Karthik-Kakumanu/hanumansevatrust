@@ -18,9 +18,9 @@ const ContactIcon = () => (
 )
 
 const WhatsAppIcon = () => (
-  <svg className="support-icon" viewBox="2 2 20 20" aria-hidden="true" focusable="false">
-    <path d="M12 4.2a7.8 7.8 0 0 0-6.7 11.8L4.2 20l4.1-1.1A7.8 7.8 0 1 0 12 4.2Z" />
-    <path d="M9.1 8.7c.2-.3.5-.3.8-.1l1 .9c.2.2.2.5.1.7l-.4.6c.6 1 1.4 1.8 2.5 2.4l.6-.4c.2-.1.5-.1.7.1l.9 1c.2.2.2.6-.1.8-.5.5-1.2.7-1.8.5-2.4-.8-4.4-2.8-5.4-5.1-.3-.6-.1-1.3.4-1.8Z" />
+  <svg className="support-icon whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.9l-1.2 4.1 4.2-1.1A8.5 8.5 0 1 0 12 3.5Z" />
+    <path d="M9.1 8.2c.2-.4.6-.5.9-.2l1.1 1.1c.3.3.3.6.1.9l-.6.8a7.4 7.4 0 0 0 2.9 2.9l.8-.6c.3-.2.7-.2.9.1l1.1 1.1c.3.3.2.7-.2.9-.9.5-1.9.4-2.8-.1a9.7 9.7 0 0 1-4.2-4.2c-.5-.9-.6-1.9-.1-2.7Z" />
   </svg>
 )
 

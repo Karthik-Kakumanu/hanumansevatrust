@@ -3812,6 +3812,18 @@ body,
   background: #195b36;
   color: #fff;
 }
+
+.premium-whatsapp {
+  gap: 9px;
+  line-height: 1;
+}
+
+.premium-whatsapp .whatsapp-icon {
+  width: 28px;
+  height: 28px;
+  stroke-width: 2.1;
+}
+
 .footer-cta { display: inline-flex !important; margin-top: 16px; color: #f4c875 !important; font: 700 11px/1 var(--font-body) !important; letter-spacing: .1em; text-transform: uppercase; }
 .footer-cta:hover { color: #fff !important; }
 .premium-meaning__inner {
