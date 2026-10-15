@@ -2431,10 +2431,13 @@ body,
 
 .gallery-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  align-items: stretch;
   gap: clamp(12px, 1.8vw, 22px);
 }
 
 .gallery-item {
+  height: 100%;
   aspect-ratio: 1.22 / 1;
   border-radius: 8px;
   box-shadow: 0 10px 28px rgba(56, 19, 26, .1);
@@ -4724,4 +4727,29 @@ body,
 
 .page-intro--light .intro-content p {
   color: rgba(255, 246, 228, .9);
+}
+
+.same-row-heading__container,
+.premium-final__inner,
+.donation-offering {
+  min-width: 0;
+  container-type: inline-size;
+}
+
+.same-row-heading {
+  width: 100%;
+  white-space: nowrap;
+  text-wrap: nowrap;
+}
+
+.premium-section .same-row-heading {
+  font-size: clamp(18px, 6cqi, 62px);
+}
+
+.page-intro .same-row-heading {
+  font-size: clamp(18px, 7cqi, 58px);
+}
+
+.donation-offering .same-row-heading {
+  font-size: clamp(15px, 4.8cqi, 34px);
 }
