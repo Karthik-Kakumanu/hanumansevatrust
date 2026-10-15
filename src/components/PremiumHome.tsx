@@ -4,7 +4,7 @@ import SevaIdentity from './SevaIdentity'
 import TranslatedContent from '../TranslatedContent'
 
 const SupportIcon = () => (
-  <svg className="support-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <svg className="support-icon" viewBox="2 2 20 20" aria-hidden="true" focusable="false">
     <path d="M7.5 12.5 4.9 9.9a2.7 2.7 0 0 1 3.8-3.8l3 3 1.9-1.9a2.7 2.7 0 0 1 3.8 3.8l-4.9 4.9a3.9 3.9 0 0 1-5.5 0l-2.2-2.2" />
     <path d="m8.2 10.8 2.2 2.2a2.7 2.7 0 0 0 3.8 0l2.1-2.1" />
     <path d="m10.4 9.1 1.2-1.2a2.7 2.7 0 0 1 3.8 0l2.1 2.1" />
@@ -12,13 +12,13 @@ const SupportIcon = () => (
 )
 
 const ContactIcon = () => (
-  <svg className="support-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <svg className="support-icon" viewBox="2 2 20 20" aria-hidden="true" focusable="false">
     <path d="M6.8 4.7 9 4.1c.6-.2 1.2.1 1.4.7l1 2.6c.2.5 0 1-.4 1.3l-1.4 1a12.7 12.7 0 0 0 4.7 4.7l1-1.4c.3-.4.8-.6 1.3-.4l2.6 1c.6.2.9.8.7 1.4l-.6 2.2c-.2.7-.9 1.2-1.6 1.2C10.2 18.4 5.6 13.8 5.6 6.3c0-.7.5-1.4 1.2-1.6Z" />
   </svg>
 )
 
 const WhatsAppIcon = () => (
-  <svg className="support-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <svg className="support-icon" viewBox="2 2 20 20" aria-hidden="true" focusable="false">
     <path d="M12 4.2a7.8 7.8 0 0 0-6.7 11.8L4.2 20l4.1-1.1A7.8 7.8 0 1 0 12 4.2Z" />
     <path d="M9.1 8.7c.2-.3.5-.3.8-.1l1 .9c.2.2.2.5.1.7l-.4.6c.6 1 1.4 1.8 2.5 2.4l.6-.4c.2-.1.5-.1.7.1l.9 1c.2.2.2.6-.1.8-.5.5-1.2.7-1.8.5-2.4-.8-4.4-2.8-5.4-5.1-.3-.6-.1-1.3.4-1.8Z" />
   </svg>

@@ -21,7 +21,7 @@ const go = (p:string) => { document.body.classList.add('is-transitioning'); wind
 const Eyebrow = ({children}:{children:React.ReactNode}) => <TranslatedContent><span className="eyebrow">{children}</span></TranslatedContent>
 const Arrow = () => <span className="arrow">↗</span>
 const SupportIcon = () => (
-  <svg className="support-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <svg className="support-icon" viewBox="2 2 20 20" aria-hidden="true" focusable="false">
     <path d="M7.5 12.5 4.9 9.9a2.7 2.7 0 0 1 3.8-3.8l3 3 1.9-1.9a2.7 2.7 0 0 1 3.8 3.8l-4.9 4.9a3.9 3.9 0 0 1-5.5 0l-2.2-2.2" />
     <path d="m8.2 10.8 2.2 2.2a2.7 2.7 0 0 0 3.8 0l2.1-2.1" />
     <path d="m10.4 9.1 1.2-1.2a2.7 2.7 0 0 1 3.8 0l2.1 2.1" />

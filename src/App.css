@@ -249,12 +249,14 @@ nav .nav-cta:hover,
 }
 
 .support-icon {
-  width: 25px;
-  height: 25px;
+  display: block;
+  width: 30px;
+  height: 30px;
   flex: 0 0 auto;
+  align-self: center;
   fill: none;
   stroke: currentColor;
-  stroke-width: 2.25;
+  stroke-width: 2.4;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -4756,4 +4758,115 @@ body,
 
 .donation-offering .same-row-heading {
   font-size: clamp(18px, 5.4cqi, 38px);
+}
+
+.premium-gallery-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.premium-gallery-item,
+.premium-gallery-item--2,
+.premium-gallery-item--3 {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 1.5 / 1;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .premium-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .premium-gallery-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .premium-gallery-item--1 {
+    grid-column: auto;
+  }
+}
+
+.seva-list .seva-row {
+  animation: seva-row-enter .65s both;
+  transition: transform .35s ease;
+}
+
+.seva-list .seva-row:nth-child(2) { animation-delay: 90ms; }
+.seva-list .seva-row:nth-child(3) { animation-delay: 180ms; }
+.seva-list .seva-row:nth-child(4) { animation-delay: 270ms; }
+.seva-list .seva-row:nth-child(5) { animation-delay: 360ms; }
+.seva-list .seva-row:nth-child(6) { animation-delay: 450ms; }
+
+.seva-list .seva-photo {
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(56, 19, 26, .12);
+}
+
+.seva-list .seva-photo img {
+  transition: transform .65s cubic-bezier(.2, .7, .2, 1), filter .65s ease;
+}
+
+.seva-list .seva-row h2::after {
+  display: block;
+  width: 44px;
+  height: 2px;
+  margin-top: 14px;
+  background: var(--saffron);
+  content: '';
+  transform: scaleX(.65);
+  transform-origin: left;
+  transition: transform .35s ease, width .35s ease;
+}
+
+@media (hover: hover) {
+  .seva-list .seva-row:hover {
+    transform: translateY(-5px);
+  }
+
+  .seva-list .seva-row:hover .seva-photo img {
+    filter: saturate(1.06);
+    transform: scale(1.025);
+  }
+
+  .seva-list .seva-row:hover h2::after {
+    width: 64px;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes seva-row-enter {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seva-list .seva-row {
+    animation: none;
+    transition: none;
+  }
+
+  .seva-list .seva-row:hover {
+    transform: none;
+  }
+
+  .seva-list .seva-row:hover .seva-photo img {
+    filter: none;
+    transform: none;
+  }
+
+  .seva-list .seva-photo img,
+  .seva-list .seva-row h2::after {
+    transition: none;
+  }
 }
