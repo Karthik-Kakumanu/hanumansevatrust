@@ -4647,6 +4647,54 @@ body,
   }
 }
 
+/* Keep supplied artwork fully visible across the site. The activity collages
+   are 3:2 images, so portrait-style frames crop their outer panels. */
+.premium-pillar > div,
+.premium-gallery-item,
+.gallery-item,
+.seva-photo {
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 1.5 / 1;
+  background: var(--cream);
+}
+
+.premium-pillar img,
+.premium-gallery-item img,
+.gallery-item img,
+.seva-photo img,
+.premium-service__image-main,
+.premium-service__image-small {
+  object-fit: contain;
+  object-position: center;
+  background: var(--cream);
+}
+
+.premium-pillar:hover img,
+.premium-gallery-item:hover img,
+.gallery-item:hover img,
+.seva-row:hover .seva-photo img {
+  transform: none;
+}
+
+/* Keep headings tidy and aligned without forcing awkward balanced wraps. */
+.premium-section h1,
+.premium-section h2,
+.premium-section h3,
+.page-intro h1,
+.seva-row h2,
+.seva-identity__copy h2 {
+  text-align: left;
+  text-wrap: pretty;
+}
+
+@media (min-width: 901px) {
+  .premium-section-heading h2,
+  .seva-identity--home .seva-identity__copy h2 {
+    text-wrap: nowrap;
+  }
+}
+
 .page-intro {
   background-color: var(--maroon);
   background-image: url('/images/bg3.jpg');
