@@ -1,16 +1,16 @@
 # Asset Provenance & Attribution Register
 
 ## 1. 3D Model & Architecture
-- **Lord Hanuman 3D Character**: Custom procedural sculpt rendered in Three.js and React Three Fiber with authentic devotional iconography (Kirita Mukuta crown, Kundalas, Sindoor Urdhva Pundra Tilak, Yajnopavita / Janeu sacred thread, pleated saffron Dhoti with maroon Kachha, Abhaya Mudra blessing gesture, and the Kaumodaki-style fluted golden Gada). Rigged with dynamic skeletal kinematics (natural breathing, gaze motion, and chapter-based mudra transitions).
+- **Lord Hanuman 3D Character**: Custom procedural Three.js geometry rendered in React Three Fiber with devotional iconography (crown, tilak, sacred thread, saffron attire, blessing gesture, and gada). It is not a GLB/glTF asset and does not contain a source skeleton or imported animation clips; its breathing, gaze and pose changes are procedural transforms. A licensed production-quality GLB remains a client dependency.
 - **Architecture**: Connected procedural temple world comprising Mandapa Torana arches, octagonal plinth pillars, hanging brass bells with dynamic sway physics, and flickering diya oil lamps with point illumination.
-- **External GLB Licensing Note**: Licensed commercial 3D GLBs (such as RenderHub "Hindu God Hanuman 3D" by saxn) require client payment authorization. The current implementation provides a zero-dependency, verified high-fidelity 3D experience without risk of copyright infringement.
+- **External GLB Licensing Note**: Licensed commercial 3D GLBs (such as RenderHub "Hindu God Hanuman 3D" by saxn) require client payment authorization. The current implementation intentionally does not claim that a licensed GLB or imported character animation is present.
 
 ## 2. Audio System
 - **Temple Bell Ambience**: Verified audio recording of Zenkō-ji Temple Bell from the Internet Archive.
 - **Source**: `https://archive.org/details/aporee_35163_40403`
 - **License**: Creative Commons Attribution-ShareAlike 3.0 Unported (`CC-BY-SA 3.0`).
 - **File**: `public/audio/temple-bell.mp3`
-- **Behavior**: User-initiated playback respecting all modern browser autoplay policies, with real-time volume slider and mute toggle.
+- **Behavior**: User-initiated playback respecting browser autoplay policies, with real-time volume slider, pause control, and explicit playback error feedback. Playback is only shown as active after the audio element emits a real `play` event.
 - **Vocal Chant Note**: A client-authorized master vocal recording of "Jai Shri Ram" chant can be placed into `public/audio/` once provided by the trust.
 
 ## 3. Authentic Trust Assets & Imagery
