@@ -4736,6 +4736,10 @@ body,
   container-type: inline-size;
 }
 
+.premium-section-heading .same-row-heading__container {
+  flex: 1;
+}
+
 .same-row-heading {
   width: 100%;
   white-space: nowrap;
@@ -4743,13 +4747,13 @@ body,
 }
 
 .premium-section .same-row-heading {
-  font-size: clamp(18px, 6cqi, 62px);
+  font-size: clamp(22px, 7.2cqi, 68px);
 }
 
 .page-intro .same-row-heading {
-  font-size: clamp(18px, 7cqi, 58px);
+  font-size: clamp(22px, 7.4cqi, 62px);
 }
 
 .donation-offering .same-row-heading {
-  font-size: clamp(15px, 4.8cqi, 34px);
+  font-size: clamp(18px, 5.4cqi, 38px);
 }
