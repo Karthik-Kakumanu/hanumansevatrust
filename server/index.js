@@ -1,4 +1,6 @@
 import 'dotenv/config'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import express from 'express'
 import cors from 'cors'
 import rateLimit from 'express-rate-limit'
@@ -6,6 +8,8 @@ import { z } from 'zod'
 
 const app = express()
 const port = Number(process.env.PORT || 8787)
+const serverDirectory = path.dirname(fileURLToPath(import.meta.url))
+const distDirectory = path.resolve(serverDirectory, '../dist')
 const origins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173,http://127.0.0.1:5173').split(',').map(x => x.trim()).filter(Boolean)
 app.use(cors({ origin: (origin, cb) => !origin || origins.includes(origin) ? cb(null, true) : cb(new Error('Origin not allowed')) }))
 app.use(express.json({ limit: '32kb' }))
@@ -26,5 +30,13 @@ function safeResult(schema, req, res, kind) {
 app.get('/api/health', (_req, res) => res.json({ ok: true, service: 'jai-hanuman-seva-trust' }))
 app.post('/api/contact', (req, res) => safeResult(contactSchema, req, res, 'Contact'))
 app.post('/api/donations', (req, res) => safeResult(donationSchema, req, res, 'Donation'))
+
+// Serve the Vite build when this API is deployed as the web server. The fallback
+// is required for browser refreshes on client-side routes such as /about.
+app.use(express.static(distDirectory))
+app.get(/^(?!\/api(?:\/|$)).*/, (_req, res) => {
+  res.sendFile(path.join(distDirectory, 'index.html'))
+})
+
 app.use((_req, res) => res.status(404).json({ ok: false, error: 'Not found' }))
 app.listen(port, () => console.log(`Jai Hanuman API listening on ${port}`))
