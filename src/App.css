@@ -2290,6 +2290,9 @@ body,
 }
 
 .premium-final__inner h2 {
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
   text-align: center;
 }
 
