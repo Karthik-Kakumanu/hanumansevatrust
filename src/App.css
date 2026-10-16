@@ -2289,6 +2289,10 @@ body,
   max-width: 820px;
 }
 
+.premium-final__inner h2 {
+  text-align: center;
+}
+
 .premium-final .premium-actions {
   justify-content: center;
 }
