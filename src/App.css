@@ -4976,6 +4976,15 @@ body,
   }
 }
 
+@media (max-width: 560px) {
+  .sand-section .purpose-grid,
+  .premium-about .purpose-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+}
+
 .seva-list .seva-row {
   animation: seva-row-enter .65s both;
   transition: transform .35s ease;
