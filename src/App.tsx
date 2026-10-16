@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import './App.css'
 import { galleryItems, galleryCategories } from './data/galleryData'
 import PremiumHome from './components/PremiumHome'
+import PurposeCards from './components/PurposeCards'
 import SevaIdentity from './components/SevaIdentity'
 import { useLanguage } from './LanguageContext'
 import TranslatedContent from './TranslatedContent'
@@ -63,7 +64,43 @@ function Header({path,menu,setMenu}:{path:string;menu:boolean;setMenu:(v:boolean
 }
 function Footer(){return <TranslatedContent><footer className="footer"><div className="footer-grid wrap"><div><img className="footer-logo" src="/images/logo.png" alt=""/><p>A registered charitable trust serving hunger relief, dharma prachar and compassionate seva from Kalluru, Telangana.</p><a className="footer-cta" href="/donation">Join us in seva ↗</a></div><div><Eyebrow>Explore</Eyebrow><a href="/about">Our story</a><a href="/seva">Seva & activities</a><a href="/gallery">Gallery</a><a href="/donation">Donate</a></div><div><Eyebrow>Visit the trust</Eyebrow><p>7-62, Kalluru Vi., Kalluru Md.<br/>Khammam, Telangana – 507209</p><a href="mailto:jaihanumansevatrust@gmail.com">jaihanumansevatrust@gmail.com</a><a href="tel:+917095999915">+91 7095 9999 15</a></div></div><div className="footer-bottom wrap"><span>© 2026 Jai Hanuman Seva Trust</span><span>ॐ · Seva is worship</span></div></footer></TranslatedContent>}
 function Intro({eyebrow,title,copy,tone='dark',singleRowTitle=false}:{eyebrow:string;title:React.ReactNode;copy:string;tone?:'dark'|'light';singleRowTitle?:boolean}){return <TranslatedContent><section className={`page-intro page-intro--${tone}`}><div className={`wrap intro-content${singleRowTitle?' same-row-heading__container':''}`}><Eyebrow>{eyebrow}</Eyebrow><h1 className={singleRowTitle?'same-row-heading':undefined}>{title}</h1><p>{copy}</p></div></section></TranslatedContent>}
-function About(){return <TranslatedContent><><Intro eyebrow="The trust · 2023" title={<>A life of faith,<br/><i>offered in service.</i></>} copy="Jai Hanuman Seva Trust exists to translate devotion into practical compassion, preserving the values of dharma through daily action." tone="light"/><section className="section"><div className="wrap"><div className="two-col"><div><Eyebrow>Our story</Eyebrow><h2>Rooted in<br/><i>Hanuman's spirit.</i></h2><p>Founded in 2023, Jai Hanuman Seva Trust is a government-registered charitable organisation based in Kalluru, Telangana. Inspired by Lord Hanuman's courage, humility and unwavering service to Sri Rama, the trust works at the meeting point of spiritual life and human need.</p><p>Our seva includes Annadaan, scripture distribution, Goshala Seva, bhajans, satsang and cultural programmes.</p></div><figure className="about-devotional-figure"><img src="/images/hanuman/hanuman-3d-prayer.png" alt="AI devotional artwork of Lord Hanuman in prayer" loading="lazy"/><figcaption>Lord Hanuman in prayer</figcaption></figure></div><SevaIdentity context="about"/></div></section><section className="sand-section"><div className="wrap values"><div><Eyebrow>Mission</Eyebrow><h3>Serve with compassion.</h3><p>To nourish, support and uplift communities through Annadaan, spiritual education and compassionate care.</p></div><div><Eyebrow>Vision</Eyebrow><h3>Let dharma flourish.</h3><p>To create a culture where devotion inspires responsible action, shared learning and care for every living being.</p></div></div></section><section className="section"><div className="wrap"><Eyebrow>Registration & legal information</Eyebrow><h2>Transparent in<br/><i>our identity.</i></h2><div className="legal-grid">{[['Established','2023'],['Book 4 Doc No','6/2025'],['NGO ID','TG/00048783'],['Darpan','TS/2025/0768831'],['Unique Registration','BK04 6/2025'],['PAN (80G)','AAFTJ3275R'],['CSR','CSR00096404']].map(([l,v])=><div key={l}><span>{l}</span><strong>{v}</strong></div>)}</div></div></section></></TranslatedContent>}
+function About(){
+  return <TranslatedContent><>
+    <Intro eyebrow="The trust · 2023" title={<>A life of faith,<br/><i>offered in service.</i></>} copy="Jai Hanuman Seva Trust exists to translate devotion into practical compassion, preserving the values of dharma through daily action." tone="light"/>
+    <section className="section">
+      <div className="wrap">
+        <div className="two-col">
+          <div>
+            <Eyebrow>Our story</Eyebrow>
+            <h2>Rooted in<br/><i>Hanuman's spirit.</i></h2>
+            <p>Founded in 2023, Jai Hanuman Seva Trust is a government-registered charitable organisation based in Kalluru, Telangana. Inspired by Lord Hanuman's courage, humility and unwavering service to Sri Rama, the trust works at the meeting point of spiritual life and human need.</p>
+            <p>Our seva includes Annadaan, scripture distribution, Goshala Seva, bhajans, satsang and cultural programmes.</p>
+          </div>
+          <figure className="about-devotional-figure">
+            <img src="/images/hanuman/hanuman-3d-prayer.png" alt="AI devotional artwork of Lord Hanuman in prayer" loading="lazy"/>
+            <figcaption>Lord Hanuman in prayer</figcaption>
+          </figure>
+        </div>
+        <SevaIdentity context="about"/>
+      </div>
+    </section>
+    <section className="sand-section">
+      <div className="wrap">
+        <PurposeCards purposes={[
+          {label:'Mission',title:'Serve with compassion.',description:'To nourish, support and uplift communities through Annadaan, spiritual education and compassionate care.'},
+          {label:'Vision',title:'Let dharma flourish.',description:'To create a culture where devotion inspires responsible action, shared learning and care for every living being.'}
+        ]}/>
+      </div>
+    </section>
+    <section className="section">
+      <div className="wrap">
+        <Eyebrow>Registration & legal information</Eyebrow>
+        <h2>Transparent in<br/><i>our identity.</i></h2>
+        <div className="legal-grid">{[['Established','2023'],['Book 4 Doc No','6/2025'],['NGO ID','TG/00048783'],['Darpan','TS/2025/0768831'],['Unique Registration','BK04 6/2025'],['PAN (80G)','AAFTJ3275R'],['CSR','CSR00096404']].map(([label,value])=><div key={label}><span>{label}</span><strong>{value}</strong></div>)}</div>
+      </div>
+    </section>
+  </></TranslatedContent>
+}
 function Seva(){return <TranslatedContent><><Intro eyebrow="Seva & activities" title={<>Six paths.<br/><i>One offering.</i></>} copy="From a warm meal to a shared chant, every activity is an invitation to serve with presence."/><section className="section seva-list"><div className="wrap">{activities.map(([title,text,img],i)=><article className={'seva-row '+(i%2?'reverse':'')} key={title}><div className="seva-photo"><img src={img} alt={`Trust-provided activity photographs associated with ${title}`} loading="lazy"/></div><div><Eyebrow>0{i+1} · Seva pillar</Eyebrow><h2>{title}</h2><p>{text}</p></div></article>)}</div></section><section className="dharma mini-dharma"><div className="wrap"><Eyebrow>Beyond the six pillars</Eyebrow><h2>Dharma Prachar</h2><p>Bhajans and music · Traditional dance · Yoga centres · Ramayana and Mahabharata Parayanam</p></div></section></></TranslatedContent>}
 function Gallery({setLightbox}:{setLightbox:(v:string|null)=>void}){const [filter,setFilter]=useState('All Photos');const items=useMemo(()=>filter==='All Photos'?galleryItems:galleryItems.filter(x=>x.category===filter),[filter]);return <TranslatedContent><><Intro eyebrow="Documentary gallery" title={<>Seva, seen <i>in the world.</i></>} copy="Photographs published in the trust's activity collection, grouped by the activities named by the trust." tone="light" singleRowTitle/><section className="section gallery-section"><div className="wrap"><div className="filters">{galleryCategories.map(c=><button className={filter===c?'selected':''} key={c} onClick={()=>setFilter(c)}>{c}</button>)}</div><div className="gallery-grid">{items.map(item=><button className="gallery-item" key={item.src} onClick={()=>setLightbox(item.src)}><img src={item.src} alt={`Trust-provided activity photographs associated with ${item.category}`} loading="lazy"/><span><b>{item.category}</b><strong>{item.title}</strong></span></button>)}</div></div></section></></TranslatedContent>}
 function Events(){return <TranslatedContent><><Intro eyebrow="Gatherings & festivals" title={<>When hearts<br/><i>gather.</i></>} copy="Festivals, satsangs and spiritual programmes will be announced here as dates are confirmed."/><section className="section empty-state"><div className="wrap"><span className="bell-mark">♢</span><Eyebrow>Events calendar</Eyebrow><h2>New gatherings<br/><i>will be announced soon.</i></h2><p>There are no upcoming events published at this time. Please check back for future satsangs, Annadaan programmes and festival observances.</p></div></section></></TranslatedContent>}

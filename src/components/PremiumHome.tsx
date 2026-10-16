@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import type { MouseEvent } from 'react'
 import SevaIdentity from './SevaIdentity'
+import PurposeCards from './PurposeCards'
 import TranslatedContent from '../TranslatedContent'
 
 const SupportIcon = () => (
@@ -216,7 +217,7 @@ export default function PremiumHome() {
 
     <section className="premium-darshan" aria-label="Hanuman devotional imagery"><div ref={darshanRef} className="premium-wrap premium-darshan__grid">{darshanImages.map(image => <figure className="premium-darshan__image" data-reveal key={image.src}><img src={image.src} alt={image.alt} loading="lazy" /></figure>)}</div></section>
 
-    <section className="premium-about premium-section"><div className="premium-wrap premium-about__inner"><div className="premium-copy" data-reveal><h2>Where devotion<br/><i>becomes seva.</i></h2><p>Established in 2023, Jai Hanuman Seva Trust is a registered charitable organisation based in Kalluru, Telangana. Inspired by Lord Hanuman's courage, humility and unwavering service to Sri Rama, the trust works at the meeting point of spiritual life and human need.</p><a className="premium-text-link" href="/about" onClick={jump('/about')}>Read our story <span>↗</span></a></div><div className="premium-mini-columns" data-reveal><div><b>Mission</b><span>Serve with compassion through Annadaan, spiritual education and care.</span></div><div><b>Vision</b><span>Let dharma flourish through responsible action and shared learning.</span></div></div></div></section>
+    <section className="premium-about premium-section"><div className="premium-wrap premium-about__inner"><div className="premium-copy" data-reveal><h2>Where devotion<br/><i>becomes seva.</i></h2><p>Established in 2023, Jai Hanuman Seva Trust is a registered charitable organisation based in Kalluru, Telangana. Inspired by Lord Hanuman's courage, humility and unwavering service to Sri Rama, the trust works at the meeting point of spiritual life and human need.</p><a className="premium-text-link" href="/about" onClick={jump('/about')}>Read our story <span>↗</span></a></div><div data-reveal><PurposeCards compact purposes={[{label:'Mission',title:'Serve with compassion.',description:'Serve with compassion through Annadaan, spiritual education and care.'},{label:'Vision',title:'Let dharma flourish.',description:'Let dharma flourish through responsible action and shared learning.'}]}/></div></div></section>
 
     <section className="premium-service premium-section"><div className="premium-wrap premium-service__inner"><div className="premium-service__copy" data-reveal><h2>Many forms.<br/><i>One spirit.</i></h2><p>From a warm meal to a shared chant, every activity is an invitation to serve with presence, humility and love.</p><a className="premium-text-link" href="/seva" onClick={jump('/seva')}>Explore all seva <span>↗</span></a></div><figure className="premium-service__images" data-reveal><img className="premium-service__image-main" src="/uploads/gallery/1775715457491-WhatsApp_Image_2026-04-09_at_00.37.51.webp" alt="Annadaan service activity"/><img className="premium-service__image-small" src="/uploads/gallery/1775715427232-WhatsApp_Image_2026-04-09_at_00.37.52.webp" alt="Devotional gathering"/><figcaption>Annadaan in action — serving with dignity, warmth and devotion.</figcaption></figure></div></section>
 
