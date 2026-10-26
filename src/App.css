@@ -5064,3 +5064,31 @@ body,
     transition: none;
   }
 }
+
+.brand img {
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+}
+
+.footer-logo {
+  width: clamp(190px, 22vw, 250px);
+  height: auto;
+  padding: 8px;
+  border: 1px solid rgba(184, 139, 53, .28);
+  border-radius: 20px;
+  background: var(--ivory);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .22);
+  filter: none;
+}
+
+@media (max-width: 560px) {
+  .brand img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .footer-logo {
+    width: min(210px, 70vw);
+  }
+}

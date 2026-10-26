@@ -11,7 +11,7 @@ export default function ApplicationRoot() {
 
   useEffect(() => {
     let cancelled = false
-    const criticalAssets = ['/images/logo.png', '/images/loading/hanuman-sanjeevani.png']
+    const criticalAssets = ['/images/logo.png', '/images/logo-mark.png', '/images/loading/hanuman-sanjeevani.png']
     const loadImage = (src: string) => new Promise<void>((resolve) => {
       const image = new Image()
       image.onload = () => resolve()

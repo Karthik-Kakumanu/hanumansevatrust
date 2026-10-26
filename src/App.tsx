@@ -46,7 +46,7 @@ function Header({path,menu,setMenu}:{path:string;menu:boolean;setMenu:(v:boolean
   return <TranslatedContent><>
     <div className="topline"><span>JAI SHRI RAM</span><span className="topline-center">Serving humanity through Annadaan & Dharma Prachar</span><span>ॐ श्री हनुमते नमः</span></div>
     <header className="site-header">
-      <a className="brand" href="/" onClick={navigate('/')}><img src="/images/logo.png" alt="Jai Hanuman Seva Trust logo"/><span><b>Jai Hanuman</b><em>Seva Trust</em></span></a>
+      <a className="brand" href="/" onClick={navigate('/')}><img src="/images/logo.png" alt="Jai Hanuman Seva Trust"/></a>
       <nav id="site-navigation" aria-label="Main navigation" className={menu?'nav-open':''}>
         <a className={path==='/'?'active':''} aria-current={path==='/'?'page':undefined} href="/" onClick={navigate('/')}>Home</a>
         {nav.map(([label,href])=><a className={path===href?'active':''} aria-current={path===href?'page':undefined} key={href} href={href} onClick={navigate(href)}>{label}</a>)}
